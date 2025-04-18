@@ -1,5 +1,5 @@
 // Base URL for backend (Node.js server)
-const API_BASE_URL = 'https://ecommerce-backend-j379.onrender.com/api';
+const API_BASE_URL = 'http://ecommerce-backend-j379.onrender.com/api';
 
 // ========== AUTH FUNCTIONS ========== //
 
