@@ -8,24 +8,30 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>ShopEasy</h1>
-            <nav>
-                <ul>
+        <div class="container header-bar">
+            <div class="logo">
+                <a href="index.html"><img src="https://img.icons8.com/fluency/48/shop.png" alt="ShopEasy Logo"></a>
+                <h1>ShopEasy</h1>
+            </div>
+            <nav class="nav-links">
+                <ul class="main-nav">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Categories</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Electronics</a></li>
+                            <li><a href="#">Clothing</a></li>
+                            <li><a href="#">Home & Garden</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                <div class="nav-right">
-                    <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-                    <a href="login.html">Login/Register</a>
-                    <a href="profile.html">My Profile</a>
-                    <a href="profile.html" id="profile-link" style="display: none;">My Profile</a>
-
+                <div class="user-actions">
+                    <a href="cart.html" class="btn-nav">🛒 Cart (<span id="cart-count">0</span>)</a>
+                    <a href="profile.html" class="btn-nav" id="profile-link" style="display: none;">🕤 My Profile</a>
+                    <a href="login.html" class="btn-nav" id="auth-link">🔐 Login/Register</a>
                 </div>
             </nav>
         </div>
     </header>
-    
 
     <main class="container">
         <section class="hero">
@@ -41,11 +47,11 @@
                     <h3>Electronics</h3>
                 </div>
                 <div class="category-card" data-category="clothing">
-                    <img src="  https://bit.ly/4jdJOrc" alt="Clothing">
+                    <img src="https://bit.ly/4jdJOrc" alt="Clothing">
                     <h3>Clothing</h3>
                 </div>
                 <div class="category-card" data-category="home">
-                    <img src="  https://bit.ly/4jdJOrc" alt="Home & Garden">
+                    <img src="https://bit.ly/4jdJOrc" alt="Home & Garden">
                     <h3>Home & Garden</h3>
                 </div>
             </div>
@@ -57,13 +63,6 @@
                 <!-- Products will be loaded here by JavaScript -->
             </div>
         </section>
-        <section class="featured-products">
-            <h2>Best Selling Products</h2>
-            <div class="product-grid" id="product-grid">
-                <!-- JavaScript will populate this section with products -->
-            </div>
-        </section>
-        
     </main>
 
     <footer>
@@ -76,5 +75,20 @@
     <script src="cart.js"></script>
     <script src="auth.js"></script>
     <script src="main.js"></script>
+    <script>
+        // Show profile if logged in
+        document.addEventListener('DOMContentLoaded', function () {
+            const user = localStorage.getItem('currentUser');
+            const profileLink = document.getElementById('profile-link');
+            const authLink = document.getElementById('auth-link');
+            if (user) {
+                profileLink.style.display = 'inline-block';
+                authLink.style.display = 'none';
+            } else {
+                profileLink.style.display = 'none';
+                authLink.style.display = 'inline-block';
+            }
+        });
+    </script>
 </body>
 </html>
