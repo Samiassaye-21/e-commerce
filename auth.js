@@ -56,6 +56,15 @@ async function loginUser(email, password) {
     alert(error.message);
   }
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const profileLink = document.getElementById('profile-link');
+  const user = localStorage.getItem('loggedInUser');
+
+  if (profileLink && user) {
+      profileLink.style.display = 'inline-block';
+  }
+});
+
 
 // Logout (unchanged)
 function logoutUser() {

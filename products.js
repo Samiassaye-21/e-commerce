@@ -145,6 +145,29 @@ function displayProductDetails(productId) {
         window.location.href = 'cart.html';
     });
 }
+const product = [
+    { name: "Product 1", price: "$199", imageUrl: "https://source.unsplash.com/500x500/?electronics" },
+    { name: "Product 2", price: "$99", imageUrl: "https://source.unsplash.com/500x500/?clothing" },
+    { name: "Product 3", price: "$149", imageUrl: "https://source.unsplash.com/500x500/?home" },
+];
+
+function displayProducts() {
+    const productGrid = document.getElementById('product-grid');
+    products.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.classList.add('product-card');
+        productElement.innerHTML = `
+            <img src="${product.imageUrl}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.price}</p>
+            <a href="product.html?id=${product.id}" class="btn">View Details</a>
+        `;
+        productGrid.appendChild(productElement);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', displayProducts);
+
 
 // Initialize products on page load
 document.addEventListener('DOMContentLoaded', function() {
